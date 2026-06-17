@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-w5m6k0ax745!b+x+0ra04v36dx3zw63%-pc-#o0g0^hv@&!dwb
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    'rest_framework',
+    'todo_app',
 ]
 
 MIDDLEWARE = [
@@ -72,14 +75,18 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+import os
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'my_database',         # 必須與 docker-compose.yml 的 MYSQL_DATABASE 一致
+        'USER': 'my_user',             # 必須與 docker-compose.yml 的 MYSQL_USER 一致
+        'PASSWORD': 'my_password',     # 必須與 docker-compose.yml 的 MYSQL_PASSWORD 一致
+        'HOST': 'db',                  # 這是 docker-compose 的服務名稱，正確
+        'PORT': '3306',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_DATABASE: my_database
+      MYSQL_USER: my_user
+      MYSQL_PASSWORD: my_password
+      MYSQL_ROOT_PASSWORD: root_password
+    ports:
+      - "3307:3306"
+  app:
+    build: .
+    # 修改這段 command，強制等待 db 啟動
+    command: >
+      sh -c "while ! nc -z db 3306; do
+               echo 'Waiting for MySQL...';
+               sleep 2;
+             done;
+             echo 'MySQL started';
+             python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db

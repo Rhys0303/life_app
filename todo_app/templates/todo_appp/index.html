@@ -1,0 +1,11 @@
+{% extends 'todo_app/base.html' %}
+{% block content %}
+<h2>我的待辦清單</h2>
+<ul class="list-group">
+    {% for todo in todos %}
+    <li class="list-group-item">
+        {{ todo.title }} - {% if todo.completed %}已完成{% else %}未完成{% endif %}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
