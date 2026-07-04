@@ -14,6 +14,8 @@
 
 <img width="624" height="486" alt="image" src="https://github.com/user-attachments/assets/7e44c23e-cde9-4897-9af8-8d17b7183f73" />
 
+
+
 登入後的畫面顯示
 <img width="666" height="344" alt="image" src="https://github.com/user-attachments/assets/a43bc3e5-4567-40ac-9c77-a3416c61867a" />
 
