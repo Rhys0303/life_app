@@ -1,7 +1,7 @@
-關於本專案 (Project Overview)
-本專案為 Django 框架的實踐練習，旨在建立一個高效的 API 後端服務。透過 Django REST Framework，實現了對待辦事項 (Todo Items) 的 CRUD (增刪查改) 操作，並成功將專案容器化部署至 Docker 環境，以解決跨平台環境配置的相容性問題。
+關於本專案 
+本專案為 Django 框架的實踐練習，旨在建立一個高效的 API 後端服務。透過 Django REST Framework，實現了對待辦事項 的 CRUD (增刪查改) 操作，並成功將專案容器化部署至 Docker 環境，以解決跨平台環境配置的相容性問題。
 
-核心功能 (Core Features)
+核心功能 
 
     API 接口開發：透過 DRF 提供標準化的 JSON 輸出，實現待辦事項的管理功能。
 
